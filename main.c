@@ -1,3 +1,8 @@
+// Programmed on 11-03-2023
+// By O-M-A-R A-S-H-I
+// CODE WORKS PROBARLY 
+
+
 #include <stdio.h>
 #include <string.h>
 
