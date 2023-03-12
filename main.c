@@ -6,16 +6,45 @@
 #include <stdio.h>
 #include <string.h>
 
+void Encryption()
+{
+    char plaintext[1000], ciphertext[1000];
+    char key[26] = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'};
+    int i, j;
+
+    printf("Enter plaintext: ");
+    fgets(plaintext, sizeof(plaintext), stdin);
+
+
+    int len = (int)strlen(plaintext);
+
+    // encrypt the plaintext
+    for (i = 0; i < len; i++) {
+        if (plaintext[i] >= 'a' && plaintext[i] <= 'z') {
+            j = plaintext[i] - 'a';
+            ciphertext[i] = key[j];
+        }
+        else {
+            ciphertext[i] = plaintext[i];
+        }
+    }
+    ciphertext[len] = '\0';
+
+    printf("Encrypted ciphertext: %s\n", ciphertext);
+    
+    
+}
+
 void Decryption(){
     
     char ciphertext[1000], plaintext[1000];
         char key[26] = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'};
-        int i, j, len;
+        int i, j;
 
         printf("Enter ciphertext: ");
-        gets(ciphertext);
+    fgets(plaintext, sizeof(ciphertext), stdin);
 
-        len = strlen(ciphertext);
+    int len = (int)strlen(ciphertext);
 
         // decrypt the ciphertext
         for (i = 0; i < len; i++) {
@@ -36,40 +65,13 @@ void Decryption(){
         printf("Decrypted plaintext: %s\n", plaintext);
     
 }
-void Encyrption(){
-    
-
-    char plaintext[1000], ciphertext[1000];
-    char key[26] = {'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm'};
-    int i, j, len;
-
-    printf("Enter plaintext: ");
-    gets(plaintext);
-
-    len = strlen(plaintext);
-
-    // encrypt the plaintext
-    for (i = 0; i < len; i++) {
-        if (plaintext[i] >= 'a' && plaintext[i] <= 'z') {
-            j = plaintext[i] - 'a';
-            ciphertext[i] = key[j];
-        }
-        else {
-            ciphertext[i] = plaintext[i];
-        }
-    }
-    ciphertext[len] = '\0';
-
-    printf("Encrypted ciphertext: %s\n", ciphertext);
 
 
 
-}
 int main() {
-    Encyrption();
+    Encryption();
+    
     Decryption();
-    
-    
     
     return 0;
 }
